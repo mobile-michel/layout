@@ -1,8 +1,5 @@
 ---
 import "../styles/foundation.css";
-import Footer from "./Footer.astro";
-import Header from "./Header.astro";
-import Nav from "./Nav.astro";
 const { title } = Astro.props;
 ---
 
@@ -14,14 +11,22 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
   </head>
-  <body class="grid-container grid-x">
-    <Header />
-    <Nav />
+  <body class="container fluid grid-x">
+    <header class="cell callout alert">
+      <h1>Header</h1>
+    </header>
+    <nav class="cell callout secondary">
+        <a href="grid">grid</a>
+        <a href="fluid">fluid</a>
+        <a href="#">service</a>
+    </nav>
     <main class="cell grid-x">
-      <section class="cell medium-8 callout warning">Section<br />(main content)</section>
+      <section class="cell medium-8 callout warning">Section<br />(main content)
+        <slot />
+      </section>
       <aside class="cell medium-4 callout primary">Aside (related content)</aside>
     </main>
-    <Footer />
+    <footer class="cell callout success">Copyright 2022</footer>
     <script is:inline src="/public/scripts/vendor/jquery.js"></script>
     <script is:inline src="/public/scripts/vendor/foundation.js"></script>
     <script is:inline src="/public/scripts/vendor/what-input.js"></script>
